@@ -1,0 +1,209 @@
+﻿@using Assigment2.ViewModel
+@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses List";
+    ViewData["ControllerName"] = "Course";
+    ViewData["ActionName"] = "Index";
+   
+    // Ensure ViewBag.Pager is assigned correctly
+    PagedResult pagedResult = ViewBag.Pager as PagedResult ?? new PagedResult();
+    int pageno = pagedResult.CurrentPage;
+}
+
+}
+
+<style>
+    .course-details-card {
+        transition: all 0.3s ease;
+        min-height: 150px;
+        align-items:center;
+    }
+
+    .action-buttons .btn {
+        min-width: 100px;
+        margin: 2px;
+    }
+
+    .table-hover tbody tr:hover {
+        transform: translateX(5px);
+        transition: transform 0.2s ease;
+    }
+
+    .loading-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 999;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color:white;
+    }
+
+    .pagination .page-link {
+        color: #0d6efd;
+    }
+</style>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary mb-0">
+            <i class="fas fa-book-open me-2"></i>Courses List
+        </h1>
+        <a asp-action="AddNew" asp-controller="Course" class="btn btn-success btn-lg">
+            <i class="fas fa-plus-circle me-2"></i>Add New
+        </a>
+    </div>
+
+    <div id="CourseDetails" class="course-details-card card border-primary mb-4 bg-light shadow-sm">
+        <div class="card-body text-center py-4">
+            <p class="text-muted mb-0">Select a course to view details</p>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Total Degree</th>
+                    <th>Passing Degree</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td>
+                            <button class="btn btn-link text-primary text-decoration-none p-0"
+                                    onclick="GetData(@course.CourseId)"
+                                    aria-label="View details for course @course.Name">
+                                @course.Name
+                            </button>
+                        </td>
+                        <td>@course.Degree</td>
+                        <td>@course.MinDegree</td>
+                        <td class="action-buttons text-center">
+                            <a href="/Course/Edit/@course.CourseId"
+                               class="btn btn-warning btn-sm"
+                               aria-label="Edit course @course.Name">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <button onclick="showDeleteModal(@course.CourseId, '@course.Name')"
+                                    class="btn btn-danger btn-sm"
+                                    aria-label="Delete course @course.Name">
+                                <i class="fas fa-trash-alt me-1"></i>Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <partial name="_Pages" model="@pagedResult" />
+
+</div>
+
+<!-- Delete Restriction Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="deleteModalLabel">Deletion Not Allowed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You cannot delete <strong id="departmentName"></strong> because it is associated with other records.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+    <script>
+
+
+
+             function showDeleteModal(departmentId, departmentName) {
+                // Set the department name in the modal
+                document.getElementById("departmentName").textContent = departmentName;
+
+                // Show the modal
+                var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+                deleteModal.show();
+            }
+
+
+        // AJAX handling
+        function GetData(id) {
+            const $detailsContainer = $('#CourseDetails');
+
+            $.ajax({
+                url: `/Course/DetailsUsingPartialView/${id}`,
+                method: 'GET',
+                beforeSend: () => {
+                    $detailsContainer.html(`
+                        <div class="loading-overlay d-flex justify-content-center align-items-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    `);
+                },
+                success: (data) => {
+                    $detailsContainer.html(data).hide().fadeIn(500);
+                },
+                error: () => {
+                    $detailsContainer.html(`
+                        <div class="alert alert-danger alert-dismissible fade show m-3">
+                            <strong>Error!</strong> Failed to load course details.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    `);
+                }
+            });
+        }
+
+        // Delete handling
+        let currentCourseId = null;
+
+        function deleteCourse(id, name) {
+            currentCourseId = id;
+            $('#courseName').text(name);
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+       
+        
+        
+        // Toast notifications
+        function showToast(title, message, type = 'success') {
+            const toast = $(`
+                <div class="toast align-items-center text-white bg-${type} border-0 position-fixed top-0 end-0 m-3">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <strong>${title}</strong> ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `);
+
+            $('body').append(toast);
+            new bootstrap.Toast(toast[0]).show();
+        }
+    </script>
+}

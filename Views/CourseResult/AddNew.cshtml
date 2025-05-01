@@ -1,0 +1,140 @@
+﻿@model CourseResult
+@{
+    ViewData["Title"] = Model.CourseResultId == 0 ? "Add CourseResult" : "Edit CourseResult";
+    Layout = "_MyLayout";
+}
+
+<div class="container py-5">
+    <div class="card border-0 shadow-lg rounded-4" style="max-width: 700px; margin: 0 auto;">
+        <div class="card-header bg-primary text-white rounded-top-4 py-4">
+            <h2 class="h4 mb-0">
+                <i class="fas @(Model.CourseResultId == 0 ? "fa-book-open" : "fa-edit") me-2"></i>
+                @(Model.CourseResultId == 0 ? "Create New Course Result" : "Edit Course Result Details")
+            </h2>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <form method="post" asp-action="SaveEdit" asp-controller="CourseResult" class="needs-validation" novalidate>
+                <input type="hidden" asp-for="CourseResultId" />
+                <div class="row g-4">
+                    <!-- Result Degree-->
+                    <div class="col-md-12">
+                        <div class="form-floating mb-4">
+                            <input asp-for="Degree"
+                                   class="form-control form-control-lg @(ViewData.ModelState["Degree"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                   placeholder="Result Degree" required />
+                            <label asp-for="Degree" class="form-label">
+                                <i class="fas fa-university me-2"></i>Result Degree
+                            </label>
+                            <span asp-validation-for="Degree" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+
+                    <!-- Course Selection -->
+                    <div class="col-md-12">
+                        <div class="form-floating mb-4">
+                            <select asp-for="CourseId"
+                                    class="form-select form-select-lg @(ViewData.ModelState["CourseId"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                    asp-items="ViewBag.CourseList"
+                                    required>
+                                <option value="">Select Course</option>
+                            </select>
+                            <label asp-for="CourseId" class="form-label">
+                                <i class="fas fa-building me-2"></i>Course
+                            </label>
+                            <span asp-validation-for="CourseId" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+
+                    <!-- Trainee Selection -->
+                    <div class="col-md-12">
+                        <div class="form-floating mb-4">
+                            <select asp-for="TraineeId"
+                                    class="form-select form-select-lg @(ViewData.ModelState["TraineeId"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                    asp-items="ViewBag.TraineeList"
+                                    required>
+                                <option value="">Select Trainee</option>
+                            </select>
+                            <label asp-for="TraineeId" class="form-label">
+                                <i class="fas fa-building me-2"></i>Trainee
+                            </label>
+                            <span asp-validation-for="TraineeId" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+
+                <!-- Form Actions -->
+                <div class="d-grid gap-3 d-md-flex justify-content-md-end mt-5">
+                    <a asp-action="Index" asp-controller="CourseResult"
+                       class="btn btn-lg btn-outline-secondary px-4">
+                        <i class="fas fa-times me-2"></i>Cancel
+                    </a>
+                    <button asp-action="SaveEdit" asp-controller="CourseResult" type="submit" class="btn btn-lg btn-primary px-4">
+                        <i class="fas fa-save me-2"></i>@(Model.CourseResultId == 0 ? "Create CourseResult" : "Save CourseResult")
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .form-floating > label {
+        padding-left: 2.5rem;
+    }
+
+    .form-control, .form-select {
+        padding-left: 2.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+            border-color: #0d6efd;
+        }
+
+    .invalid-feedback {
+        padding-left: 2.5rem;
+    }
+
+    .input-validation-error {
+        border-color: #dc3545 !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+        border-color: #0d6efd;
+    }
+
+    .invalid-feedback {
+        display: block;
+        color: #dc3545;
+        padding-left: 2.5rem;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>

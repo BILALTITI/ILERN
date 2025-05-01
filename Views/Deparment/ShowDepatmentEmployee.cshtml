@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "ShowDepatmentEmployee";
+    SelectList selectLists = new SelectList(Model, "Id", "Name");
+}
+
+<h1>Show Department Employees</h1>
+
+<!-- Department Dropdown -->
+<select class="form-control" name="dept" id="dept" asp-items="selectLists" onchange="GetDept()">
+    <option value="0">-- Select Department --</option>
+</select>
+
+<!-- Employees Dropdown -->
+<select class="form-control" id="Emp" name="Emp">
+    <option value="0">-- Select Employee --</option>
+</select>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function GetDept() {
+        var Dept_Id = document.getElementById("dept").value;
+        if (Dept_Id == "0") {
+            document.getElementById("Emp").innerHTML = '<option value="0">-- Select Employee --</option>';
+            return;
+        }
+
+        $.ajax({
+            url: '/Department/GetEmployeePerDepartent?DeptId=' + Dept_Id,
+            type: 'GET',
+            success: function (data) {
+                var empDropdown = document.getElementById("Emp");
+                empDropdown.innerHTML = '<option value="0">-- Select Employee --</option>';
+
+                data.forEach(emp => {
+                    var option = document.createElement("option");
+                    option.value = emp.id;
+                    option.textContent = emp.name;
+                    empDropdown.appendChild(option);
+                });
+            },
+            error: function () {
+                alert("Error fetching employees.");
+            }
+        });
+    }
+</script>

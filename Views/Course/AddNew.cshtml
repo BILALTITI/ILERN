@@ -1,0 +1,138 @@
+﻿@model Course
+@{
+    ViewData["Title"] = Model.CourseId == 0 ? "Add Course" : "Edit Course";
+    Layout = "_MyLayout";
+}
+
+<div class="container py-5">
+    <div class="card border-0 shadow-lg rounded-4" style="max-width: 700px; margin: 0 auto;">
+        <div class="card-header bg-primary text-white rounded-top-4 py-4">
+            <h2 class="h4 mb-0">
+                <i class="fas @(Model.CourseId == 0 ? "fa-book-open" : "fa-edit") me-2"></i>
+                @(Model.CourseId == 0 ? "Create New Course" : "Edit Course Details")
+            </h2>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <form method="post" asp-action="SaveEdit" asp-controller="Course" class="needs-validation">
+                <input type="hidden" asp-for="CourseId" />
+                <!-- Updated input for Name (apply same pattern to other fields) -->
+                <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                        <input asp-for="Name"
+                               class="form-control form-control-lg @(ViewData.ModelState["Name"]?.Errors.Any() == true ? "is-invalid" : "")"
+                               placeholder="Course Name" />
+                        <label asp-for="Name" class="form-label">
+                            <i class="fas fa-graduation-cap me-2"></i>Course Name
+                        </label>
+                        <span asp-validation-for="Name" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                        <input asp-for="Degree"
+                               class="form-control form-control-lg @(ViewData.ModelState["Degree"]?.Errors.Any() == true ? "is-invalid" : "")"
+                               placeholder="Enter Course Degre 20-100" />
+                        <label asp-for="Name" class="form-label">
+                            <i class="fas fa-graduation-cap me-2"></i>Course Degree
+                        </label>
+                        <span asp-validation-for="Degree" class="invalid-feedback"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                        <input asp-for="MinDegree"
+                               class="form-control form-control-lg @(ViewData.ModelState["MinDegree"]?.Errors.Any() == true ? "is-invalid" : "")"
+                               placeholder=" Pass Degree" />
+                        <label asp-for="Name" class="form-label">
+                            <i class="fas fa-graduation-cap me-2"></i>Minimum Degree
+                        </label>
+                        <span asp-validation-for="MinDegree" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                    <!-- Department Selection -->
+                <div class="col-md-12">
+                    <div class="form-floating mb-4">
+                        <select asp-for="DepartmentId"
+                                class="form-select form-select-lg @(ViewData.ModelState["DepartmentId"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                asp-items="ViewBag.DeptList"
+                                required>
+                            <option value="">Select Department</option>
+                        </select>
+                        <label asp-for="DepartmentId" class="form-label">
+                            <i class="fas fa-building me-2"></i>Department
+                        </label>
+                        <span asp-validation-for="DepartmentId" class="invalid-feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="d-grid gap-3 d-md-flex justify-content-md-end mt-5">
+                    <a asp-action="Index" asp-controller="Course"
+                       class="btn btn-lg btn-outline-secondary px-4">
+                        <i class="fas fa-times me-2"></i>Cancel
+                    </a>
+                    <button type="submit" class="btn btn-lg btn-primary px-4">
+                        <i class="fas fa-save me-2"></i>@(Model.CourseId == 0 ? "Create Course" : "Save Changes")
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ 
+    <style>
+        .card {
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .form-floating > label {
+            padding-left: 2.5rem;
+        }
+
+        .form-control, .form-select {
+            padding-left: 2.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus, .form-select:focus {
+                box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+                border-color: #0d6efd;
+            }
+
+        .invalid-feedback {
+            padding-left: 2.5rem;
+
+        }
+
+    .input-validation-error {
+        border-color: #dc3545 !important;
+    }
+
+    .invalid-feedback {
+        display: block;
+        color: #dc3545;
+        margin-top: 0.25rem;
+    }
+    </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Bootstrap validation
+        // (() => {
+        //     'use strict'
+        //     const forms = document.querySelectorAll('.needs-validation')
+        //     Array.from(forms).forEach(form => {
+        //         form.addEventListener('submit', event => {
+        //             if (!form.checkValidity()) {
+        //                 event.preventDefault()
+        //                 event.stopPropagation()
+        //             }
+        //             form.classList.add('was-validated')
+        //         }, false)
+        //     })
+        // })()
+    </script>
+ 

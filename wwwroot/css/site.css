@@ -1,0 +1,181 @@
+/* Global font size */
+html {
+    font-size: 14px;
+}
+
+/* Responsive font sizes */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Focus style for elements */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Body style */
+body 
+ 
+{
+    background: linear-gradient(to right, #141E30, #243B55);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px; /* Prevents navbar overlap */
+    min-height: 100vh; /* Ensures full height */
+    margin: 0;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
+     text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 80px;
+}
+
+
+/* Row styling to allow wrapping and centering */
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center align */
+    gap: 20px; /* Space between cards */
+}
+
+/* Card styling */
+.card {
+    width: 100%; /* Take full width on smaller screens */
+    max-width: 400px; /* Set a max-width for larger screens */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Space between cards */
+}
+ 
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Card title and text styling */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.btn-outline-light {
+    border: 2px solid white;
+    transition: background 0.3s, color 0.3s;
+}
+
+    .btn-outline-light:hover {
+        background: white;
+        color: #141E30;
+    }
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+/* Media Query for larger screens */
+@media (min-width: 992px) {
+    .card-title {
+        font-size: 1.8rem;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+    text-align: center;
+}
+
+    .footer p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .footer a {
+        text-decoration: none;
+        color: #00c6ff;
+        transition: color 0.3s;
+    }
+
+        .footer a:hover {
+            color: #ffcc00;
+        }
+
+.social-icon {
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+    .social-icon:hover {
+        color: #ffcc00;
+    }
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 0;
+    }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+    .social-icon {
+        font-size: 1.2rem;
+    }
+}
+
+.footer .row {
+    margin-bottom: 20px;
+}
+/* Fix navbar at the top and make it full width */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures navbar is above other elements */
+    background-color: #fff; /* Adjust color if needed */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure body content doesn't go under the navbar */
+body {
+    padding-top: 60px; /* Adjust according to navbar height */
+    margin: 0;
+}
+
+ 

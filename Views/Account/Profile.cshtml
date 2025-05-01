@@ -1,0 +1,494 @@
+﻿@using Assigment2.ViewModel
+@model ProfileViewModel
+@{
+    ViewData["Title"] = "Profile Page";
+    Layout = "_SettingsLayout";
+}
+
+<div class="profile-container">
+    <!-- Keep all your existing profile content here -->
+    <div class="profile-header">
+        <div class="profile-avatar">
+            @if (!string.IsNullOrEmpty(Model.ProfilePicture))
+            {
+                <img src="@Model.ProfilePicture" alt="Profile Picture" class="avatar-image">
+            }
+            else
+            {
+                <div class="avatar-placeholder">
+                    @if (!string.IsNullOrEmpty(Model.FullName))
+                    {
+                        <span class="initials">@GetInitials(Model.FullName)</span>
+                    }
+                    else
+                    {
+                        <i class="fas fa-user default-avatar"></i>
+                    }
+                </div>
+            }
+        </div>
+        <div class="profile-meta">
+            <h1 class="profile-name">@Model.FullName</h1>
+
+            @foreach (var r in Model.Roles)
+            {
+                <p class="profile-title">@r</p>
+
+            }
+            <div class="profile-status">
+                <span class="status-badge @(Model.IsActive ? "active" : "inactive")">
+                    @(Model.IsActive ? "Active" : "Inactive")
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <!-- Personal Information Section -->
+        <section class="profile-section">
+            <h2 class="section-title">
+                <i class="fas fa-id-card me-2"></i>Personal Information
+            </h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label><i class="fas fa-user-tag me-2"></i>Username</label>
+                    <div class="info-value">@Model.UserName</div>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-birthday-cake me-2"></i>Date of Birth</label>
+                    <div class="info-value">@(Model.DateOfBirth.ToString("dd MMMM yyyy") ?? "N/A")</div>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-venus-mars me-2"></i>Gender</label>
+                    <div class="info-value">@(Model.Gender ?? "N/A")</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="profile-section">
+            <h2 class="section-title">
+                <i class="fas fa-address-book me-2"></i>Contact Information
+            </h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label><i class="fas fa-envelope me-2"></i>Email</label>
+                    <div class="info-value">@Model.Email</div>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-phone me-2"></i>Phone</label>
+                    <div class="info-value">@(Model.PhoneNumber ?? "N/A")</div>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-map-marker-alt me-2"></i>Address</label>
+                    <div class="info-value">@(Model.Address ?? "N/A")</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Details Section -->
+        <section class="profile-section">
+            <h2 class="section-title">
+                <i class="fas fa-shield-alt me-2"></i>Account Details
+            </h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label><i class="fas fa-users-cog me-2"></i>Roles</label>
+                    <div class="role-badges">
+                        @if (Model.Roles != null && Model.Roles.Any())
+                        {
+                            foreach (var role in Model.Roles)
+                            {
+                                <span class="role-badge">@role</span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="role-badge">No Role Assigned</span>
+                        }
+                    </div>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-clock me-2"></i>Last Login</label>
+                    <div class="info-value">@DateTime.Now.ToString("f")</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="profile-actions">
+            <a href="@Url.Action("Edit", "Account")" class="btn-profile-action btn-edit">
+                <i class="fas fa-edit me-2"></i>Edit Profile
+            </a>
+            <a href="@Url.Action("ChangePassword", "Account")" class="btn-profile-action btn-security">
+                <i class="fas fa-lock me-2"></i>Security Settings
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --success-color: #27ae60;
+        --background-color: #f8f9fa;
+        --text-color: #34495e;
+        --border-radius: 8px;
+    }
+
+    .profile-container {
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        max-width: 1000px;
+        margin: 2rem auto;
+        overflow: hidden;
+    }
+
+    .profile-header {
+        background: linear-gradient(135deg, var(--primary-color), #1a252f);
+        padding: 3rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        color: white;
+    }
+
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+    }
+
+    .avatar-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.2);
+    }
+
+    .avatar-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: #64748b;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .initials {
+        font-size: 2.5rem;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .default-avatar {
+        font-size: 4rem;
+        color: rgba(255,255,255,0.8);
+    }
+
+    .profile-meta {
+        flex: 1;
+    }
+
+    .profile-name {
+        margin: 0 0 0.5rem;
+        font-size: 2.2rem;
+    }
+
+    .profile-title {
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    .profile-status {
+        margin-top: 1rem;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 0.35rem 1rem;
+        border-radius: 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+        .status-badge.active {
+            background: var(--success-color);
+        }
+
+        .status-badge.inactive {
+            background: #e74c3c;
+        }
+
+    .profile-content {
+        padding: 2.5rem;
+    }
+
+    .profile-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--background-color);
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .info-item {
+        background: var(--background-color);
+        padding: 1.25rem;
+        border-radius: var(--border-radius);
+        border: 1px solid #e2e8f0;
+    }
+
+        .info-item label {
+            display: block;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+    .info-value {
+        color: var(--text-color);
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .role-badges {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .role-badge {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.35rem 1rem;
+        border-radius: 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 2rem;
+    }
+
+    .btn-profile-action {
+        padding: 0.9rem 1.75rem;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s ease;
+        font-weight: 500;
+    }
+
+    .btn-edit {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .btn-security {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .btn-profile-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        opacity: 0.9;
+    }
+
+    @@media (max-width: 768px) {
+        .profile-header {
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+        }
+
+        .profile-actions {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-profile-action {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Updated CSS for enhanced spacing and layout */
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --success-color: #27ae60;
+        --background-color: #f8f9fa;
+        --text-color: #34495e;
+        --border-radius: 12px; /* Increased border radius */
+    }
+
+    .profile-container {
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* More pronounced shadow */
+        /* max-width: 1200px; /* Increased max width */ */
+        margin: 3rem auto; /* More vertical spacing */
+        overflow: hidden;
+    }
+
+    .profile-header {
+        background: linear-gradient(135deg, var(--primary-color), #1a252f);
+        padding: 4rem 3rem; /* Increased padding */
+        display: flex;
+        align-items: center;
+        gap: 3rem; /* Larger gap between elements */
+    }
+
+    .profile-avatar {
+        width: 180px; /* Larger avatar */
+        height: 180px;
+        flex-shrink: 0;
+    }
+
+    .initials {
+        font-size: 3rem; /* Larger initials */
+    }
+
+    .profile-name {
+        font-size: 2.5rem; /* Larger name */
+        margin-bottom: 1rem;
+    }
+
+    .profile-title {
+        font-size: 1.3rem; /* Slightly larger role text */
+        margin: 0.5rem 0;
+    }
+
+    .profile-content {
+        padding: 3.5rem; /* More internal padding */
+    }
+
+    .section-title {
+        font-size: 1.6rem; /* Larger section titles */
+        margin-bottom: 2rem;
+    }
+
+    .info-grid {
+        gap: 2rem; /* Increased gap between grid items */
+    }
+
+    .info-item {
+        padding: 1.5rem; /* More padding in info cards */
+        min-height: 150px; /* Fixed height for cards */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .info-value {
+        font-size: 1.2rem; /* Larger text values */
+    }
+
+    .role-badge {
+        font-size: 1rem; /* Larger role badges */
+        padding: 0.5rem 1.25rem;
+    }
+
+    .profile-actions {
+        margin-top: 3rem; /* More spacing before buttons */
+    }
+
+    .btn-profile-action {
+        padding: 1.25rem 2.5rem; /* Larger buttons */
+        font-size: 1.1rem;
+    }
+
+    /* Enhanced mobile responsiveness */
+    @@media (max-width: 768px) {
+        .profile-container {
+            margin: 1.5rem;
+        }
+
+        .profile-header {
+            padding: 2.5rem 1.5rem;
+            gap: 2rem;
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+        }
+    }
+
+    /* Added hover effects for interactive elements */
+    .info-item {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+    /* Added subtle animations */
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .profile-container {
+        animation: fadeIn 0.6s ease-out;
+    }
+</style>
+
+@functions {
+    string GetInitials(string fullName)
+    {
+        if (string.IsNullOrEmpty(fullName)) return "";
+        var names = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        return names.Length switch
+        {
+            0 => "",
+            1 => names[0][0].ToString().ToUpper(),
+            _ => $"{names[0][0]}{names[^1][0]}".ToUpper()
+        };
+    }
+}
+  

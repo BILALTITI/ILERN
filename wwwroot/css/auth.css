@@ -1,0 +1,89 @@
+﻿/* Improved Variables for Consistency */
+:root {
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --success-green: #28a745;
+    --gradient-start: #141E30;
+    --gradient-end: #243B55;
+}
+
+/* Enhanced Body Styles */
+.auth-body {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/ /* Better for mobile */
+    padding: 2rem 1rem; /* Responsive padding */
+}
+
+/* Refined Container */
+.auth-container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    backdrop-filter: blur(5px); /* Glass effect */
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease; /* Added hover effect */
+}
+
+    .auth-container:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Improved Input Styling */
+    .auth-container .form-control {
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        transition: border-color 0.3s ease;
+    }
+
+        .auth-container .form-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: none;
+        }
+
+    /* Enhanced Button Styling */
+    .auth-container .btn {
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .auth-container .btn-primary {
+        background: var(--primary-blue);
+        border: none;
+    }
+
+        .auth-container .btn-primary:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+/* Modern Toggle Link */
+.toggle-btn {
+    color: var(--primary-blue);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+    .toggle-btn::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--dark-blue);
+        transition: width 0.3s ease;
+    }
+
+    .toggle-btn:hover::after {
+        width: 100%;
+    }

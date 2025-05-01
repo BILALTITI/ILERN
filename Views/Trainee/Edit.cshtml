@@ -1,0 +1,236 @@
+﻿@using Assigment2.ViewModel
+@model Trainee
+
+@{
+    Layout = "_MyLayout";
+    ViewData["Title"] = Model.TraineeId == 0 ? "Add New Trainee" : "Edit Trainee";
+}
+
+<div class="container py-5">
+    <div class="card border-0 shadow-lg rounded-4" style="max-width: 700px; margin: 0 auto;">
+        <div class="card-header bg-primary text-white rounded-top-4 py-4">
+            <h2 class="h4 mb-0">
+                <i class="fas @(Model.TraineeId == 0 ? "fa-user-plus" : "fa-user-edit") me-2"></i>
+                @(Model.TraineeId == 0 ? "Create New Trainee" : "Edit Trainee Profile")
+            </h2>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <form method="post" asp-action="SaveEdit" asp-controller="Trainee" enctype="multipart/form-data" class="needs-validation">
+                <input type="hidden" asp-for="@Model.TraineeId" />
+
+                <div class="row g-4">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <!-- Name Field -->
+                        <div class="form-floating mb-4">
+                            <input asp-for="@Model.Name"
+                                   class="form-control form-control-lg @(ViewData.ModelState["Name"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                   placeholder="Full name" required />
+                            <label asp-for="@Model.Name" class="form-label">
+                                <i class="fas fa-user-circle me-2"></i>Full Name
+                            </label>
+                            <span asp-validation-for="@Model.Name" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Address Field -->
+                        <div class="form-floating mb-4">
+                            <input asp-for="@Model.Address"
+                                   class="form-control form-control-lg @(ViewData.ModelState["Address"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                   placeholder="Address" required />
+                            <label asp-for="@Model.Address" class="form-label">
+                                <i class="fas fa-map-marker-alt me-2"></i>Address
+                            </label>
+                            <span asp-validation-for="@Model.Address" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Grade Field -->
+                        <div class="form-floating mb-4">
+                            <input asp-for="@Model.Grade"
+                                   class="form-control form-control-lg @(ViewData.ModelState["Grade"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                   placeholder="Grade" type="number" min="0" max="100" required />
+                            <label asp-for="@Model.Grade" class="form-label">
+                                <i class="fas fa-percent me-2"></i>Grade
+                            </label>
+                            <span asp-validation-for="@Model.Grade" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label><i class="fas fa-camera me-2"></i>Profile Photo</label>
+                            <input type="file" name="ImageFile" class="form-control form-control-lg" accept="image/*" onchange="previewImage(event)" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+
+                            <div class="image-preview mt-3 text-center">
+                                @if (!string.IsNullOrEmpty(Model.Image))
+                                {
+                                    <img src="@Model.Image" class="img-thumbnail rounded-circle shadow" style="width: 120px; height: 120px; object-fit: cover;" id="imagePreview" />
+                                }
+                                else
+                                {
+                                    <div class="avatar-placeholder rounded-circle bg-light d-inline-block">
+                                        <i class="fas fa-user-tie fa-3x text-secondary"></i>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    <!-- Dropdown Section -->
+                    <div class="col-12">
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-4">
+                                    <select asp-for="@Model.DepartmentId"
+                                            class="form-select form-select-lg @(ViewData.ModelState["DepartmentId"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                            asp-items="ViewBag.DeptList" required>
+                                        <option value="">Select Department</option>
+                                    </select>
+                                    <label asp-for="@Model.DepartmentId" class="form-label">
+                                        <i class="fas fa-building me-2"></i>Department
+                                    </label>
+                                    <span asp-validation-for="@Model.DepartmentId" class="invalid-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating mb-4">
+                                    <select asp-for="@Model.courseId"
+                                            class="form-select form-select-lg @(ViewData.ModelState["courseId"]?.Errors.Any() == true ? "is-invalid" : "")"
+                                            asp-items="ViewBag.CourseList" required>
+                                        <option value="">Select Course</option>
+                                    </select>
+                                    <label asp-for="@Model.courseId" class="form-label">
+                                        <i class="fas fa-book-open me-2"></i>Course
+                                    </label>
+                                    <span asp-validation-for="@Model.courseId" class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="d-grid gap-3 d-md-flex justify-content-md-end mt-5">
+                    <a asp-action="Index" asp-controller="Trainee"
+                       class="btn btn-lg btn-outline-secondary px-4">
+                        <i class="fas fa-times me-2"></i>Cancel
+                    </a>
+                    <button type="submit" class="btn btn-lg btn-primary px-4">
+                        <i class="fas fa-save me-2"></i>@(Model.TraineeId == 0 ? "Create Trainee" : "Save Changes")
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .form-floating > label {
+        padding-left: 2.5rem;
+    }
+
+    .form-control, .form-select {
+        padding-left: 2.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+            border-color: #0d6efd;
+        }
+
+    .invalid-feedback {
+        padding-left: 2.5rem;
+    }
+
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+    }
+
+    .file-upload-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+        .file-upload-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+    .custom-file-upload {
+        display: inline-block;
+        padding: 8px 20px;
+        background: #3498db;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        .custom-file-upload:hover {
+            background: #2980b9;
+        }
+
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        border: 2px dashed #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    /* Add these styles */
+    .input-validation-error {
+        border-color: #dc3545 !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+    .invalid-feedback {
+        display: block;
+        color: #dc3545;
+    }
+
+    .custom-file-upload {
+        background: #0d6efd;
+        border: 1px solid #0d6efd;
+    }
+
+        .custom-file-upload:hover {
+            background: #0b5ed7;
+            border-color: #0a58ca;
+        }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+          const reader = new FileReader();
+        reader.onload = function () {
+            const preview = document.getElementById('imagePreview');
+            preview.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>

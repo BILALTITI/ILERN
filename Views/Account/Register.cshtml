@@ -1,0 +1,481 @@
+﻿@using Assigment2.ViewModel
+ @using Microsoft.IdentityModel.Tokens
+@model RegisterUserViewModel
+
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Register";
+}
+
+<style>
+    /* Error styling */
+    .input-error {
+        border-color: #dc3545 !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+    .validation-message {
+        color: #dc3545;
+        font-size: 0.875em;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    /* Step indicator */
+    .form-steps {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .step {
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+        background: #e9ecef;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+        .step.active {
+            background: #007bff;
+            color: white;
+        }
+
+            .step.active:after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 10px 10px 0;
+                border-style: solid;
+                border-color: #007bff transparent transparent;
+            }
+
+    /* Form sections */
+    .form-step-section {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+        .form-step-section.active {
+            display: block;
+        }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Navigation buttons */
+    .form-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-next {
+        background: #007bff;
+        color: white;
+    }
+
+    .btn-prev {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-register {
+        background: #28a745;
+        color: white;
+    }
+
+    /* File upload */
+    .file-upload-wrapper {
+        position: relative;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
+    .custom-file-upload {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: #007bff;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        .custom-file-upload:hover {
+            background: #0056b3;
+        }
+
+    .image-preview {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .create-account-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.create-account-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.create-account-section a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.create-account-section a:hover {
+    text-decoration: underline;
+}
+
+</style>
+
+<div class="auth-container">
+    <div class="form-container">
+        <form asp-action="Register" method="post" enctype="multipart/form-data" id="registrationForm">
+            <div class="form-footer create-account-section">
+                <h2 class="text-xl font-semibold text-gray-800" style="    color: #007bff;
+    font-size: 30px;
+    margin-bottom: 30px;">
+                    Create Account
+                </h2>
+            </div>
+
+
+            <div class="form-steps">
+                <div class="step active" data-step="1">Personal Info</div>
+                <div class="step" data-step="2">Account Details</div>
+                <div class="step" data-step="3">Confirmation</div>
+            </div>
+
+            <!-- Step 1: Personal Information -->
+            <div class="form-step-section active" data-step="1">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="FullName"></label>
+                            <input asp-for="FullName" class="form-control" placeholder="John Doe" />
+                            <span asp-validation-for="FullName" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="UserName"></label>
+                            <input asp-for="UserName" class="form-control" placeholder="johndoe123" />
+                            <span asp-validation-for="UserName" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Email"></label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="john@example.com" />
+                            <span asp-validation-for="Email" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="+1 234 567 890" />
+                            <span asp-validation-for="PhoneNumber" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="DateOfBirth"></label>
+                            <input asp-for="DateOfBirth" type="date" class="form-control"
+                                   max="@DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="DateOfBirth" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Gender"></label>
+                            <select asp-for="Gender" class="form-control">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="validation-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation flex items-center justify-between mt-6">
+                    <button type="button" class="btn btn-next" data-validate-step="1">Next →</button>
+
+                    <a asp-controller="Account"
+                       asp-action="Login"
+                       class="text-blue-600 hover:text-blue-800 underline transition duration-150" style="    padding: 10px;">
+                        Already have an account? Log in
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 2: Account Details -->
+            <div class="form-step-section" data-step="2">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Password"></label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="ConfirmPassword"></label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Address"></label>
+                            <input asp-for="Address" class="form-control" placeholder="123 Main Street" />
+                            <span asp-validation-for="Address" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Role"></label>
+                            <select asp-for="Role" class="form-control">
+                                <option value="">Select Account Type</option>
+                                <option value="Admin">Administrator</option>
+                                <option value="RegularUser">Regular User</option>
+                            </select>
+                            <span asp-validation-for="Role" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label">Profile Photo</label>
+                            <div class="file-upload-wrapper">
+                                <label class="custom-file-upload">
+                                    <i class="fas fa-upload me-2"></i>Choose File
+                                    <input type="file" name="ProfilePictureFile"
+                                           accept="image/*"
+                                           onchange="previewImage(event)"
+                                           style="display: none;">
+                                </label>
+                                <span asp-validation-for="ProfilePicture " class="validation-message d-block mt-2"></span>
+                                <div class="image-preview">
+                                    @if (!string.IsNullOrEmpty(Model.ProfilePicture ))
+                                    {
+                                        <img src="@Model.ProfilePicture "
+                                             class="img-thumbnail rounded-circle shadow"
+                                             style="width: 120px; height: 120px; object-fit: cover;"
+                                             id="imagePreview" />
+                                    }
+                                    else
+                                    {
+                                        <div class="avatar-placeholder">
+                                            <i class="fas fa-user-tie fa-3x text-secondary"></i>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-prev">← Previous</button>
+                    <button type="button" class="btn btn-next" data-validate-step="2">Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div class="form-step-section" data-step="3">
+                <div class="alert alert-info">
+                    <h5 class="mb-3">Please review your information:</h5>
+                    <dl class="row">
+                        <dt class="col-sm-4">Full Name:</dt>
+                        <dd class="col-sm-8" id="reviewFullName"></dd>
+
+                        <dt class="col-sm-4">Username:</dt>
+                        <dd class="col-sm-8" id="reviewUsername"></dd>
+
+                        <dt class="col-sm-4">Account Type:</dt>
+                        <dd class="col-sm-8" id="reviewRole"></dd>
+
+                        <dt class="col-sm-4">Email:</dt>
+                        <dd class="col-sm-8" id="reviewEmail"></dd>
+
+                        <dt class="col-sm-4">Phone Number:</dt>
+                        <dd class="col-sm-8" id="reviewPhone"></dd>
+
+                        <dt class="col-sm-4">Date of Birth:</dt>
+                        <dd class="col-sm-8" id="reviewDob"></dd>
+
+                        <dt class="col-sm-4">Address:</dt>
+                        <dd class="col-sm-8" id="reviewAddress"></dd>
+
+                        <dt class="col-sm-4">Gender:</dt>
+                        <dd class="col-sm-8" id="reviewGender"></dd>
+                    </dl>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-prev">← Previous</button>
+
+                    <button type="submit" class="btn btn-register">Create Account</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Step management
+        let currentStep = 1;
+        const steps = document.querySelectorAll('.step');
+        const formSections = document.querySelectorAll('.form-step-section');
+
+        function showStep(step) {
+            currentStep = step;
+
+            // Update step indicators
+            steps.forEach((s, index) => {
+                s.classList.toggle('active', index + 1 === step);
+            });
+
+            // Show correct form section
+            formSections.forEach(section => {
+                section.classList.toggle('active', parseInt(section.dataset.step) === step);
+            });
+
+            // Update review information
+            if (step === 3) {
+                document.getElementById('reviewFullName').textContent = document.getElementById('FullName').value;
+                document.getElementById('reviewUsername').textContent = document.getElementById('UserName').value;
+                document.getElementById('reviewRole').textContent = document.getElementById('Role').value;
+                document.getElementById('reviewEmail').textContent = document.getElementById('Email').value;
+                document.getElementById('reviewPhone').textContent = document.getElementById('PhoneNumber').value;
+                document.getElementById('reviewDob').textContent = document.getElementById('DateOfBirth').value;
+                document.getElementById('reviewAddress').textContent = document.getElementById('Address').value;
+                document.getElementById('reviewGender').textContent = document.getElementById('Gender').value;
+            }
+        }
+
+        // Navigation handlers
+        document.querySelectorAll('.btn-next').forEach(button => {
+            button.addEventListener('click', async () => {
+                const isValid = await validateStep(currentStep);
+                if (isValid) showStep(currentStep + 1);
+            });
+        });
+
+        document.querySelectorAll('.btn-prev').forEach(button => {
+            button.addEventListener('click', () => showStep(currentStep - 1));
+        });
+
+        // Validation logic
+        async function validateStep(step) {
+            let isValid = true;
+
+            // Validate all fields in current step
+            const inputs = document.querySelectorAll(`[data-step="${step}"] [data-val="true"]`);
+            for (const input of inputs) {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    isValid = false;
+                }
+            }
+
+            // Special validation for file upload
+            if (step === 2) {
+                const fileInput = document.querySelector('input[type="file"]');
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const errorSpan = document.querySelector('[asp-validation-for="ProfilePictureFile"]');
+
+                    if (file.size > 2 * 1024 * 1024) {
+                        errorSpan.textContent = 'File size exceeds 2MB limit';
+                        isValid = false;
+                    }
+
+                    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                    if (!validTypes.includes(file.type)) {
+                        errorSpan.textContent = 'Invalid file type (only JPG/PNG/GIF allowed)';
+                        isValid = false;
+                    }
+                }
+            }
+
+            if (!isValid) {
+                document.querySelector('.input-error')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+
+            return isValid;
+        }
+
+        // Image preview
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+            const placeholder = document.querySelector('.avatar-placeholder');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    if (!preview) {
+                        const img = document.createElement('img');
+                        img.id = 'imagePreview';
+                        img.className = 'img-thumbnail rounded-circle shadow';
+                        img.style.cssText = 'width: 120px; height: 120px; object-fit: cover;';
+                        img.src = e.target.result;
+                        placeholder.replaceWith(img);
+                    } else {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    }
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Initial step setup
+        showStep(1);
+    </script>
+}

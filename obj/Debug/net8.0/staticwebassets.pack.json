@@ -1,0 +1,437 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Assigment2.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Assigment2.e8s7sq82dg.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\css\\auth.css",
+      "PackagePath": "staticwebassets\\css\\auth.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\0600ffea-2b81-46b4-bfcb-9329926ab348.jpg",
+      "PackagePath": "staticwebassets\\images\\0600ffea-2b81-46b4-bfcb-9329926ab348.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\06fc4b09-e178-4968-bb5c-0319488a8600_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\06fc4b09-e178-4968-bb5c-0319488a8600_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (1).png",
+      "PackagePath": "staticwebassets\\images\\1 (1).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (2).png",
+      "PackagePath": "staticwebassets\\images\\1 (2).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (4).png",
+      "PackagePath": "staticwebassets\\images\\1 (4).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (5).png",
+      "PackagePath": "staticwebassets\\images\\1 (5).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (6).png",
+      "PackagePath": "staticwebassets\\images\\1 (6).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (7).png",
+      "PackagePath": "staticwebassets\\images\\1 (7).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1 (8).png",
+      "PackagePath": "staticwebassets\\images\\1 (8).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\13181da4-8402-40b1-8a3f-be166f19dc45.jpg",
+      "PackagePath": "staticwebassets\\images\\13181da4-8402-40b1-8a3f-be166f19dc45.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\147e91b9-ca4c-469a-a0d1-27385c32470c.jpg",
+      "PackagePath": "staticwebassets\\images\\147e91b9-ca4c-469a-a0d1-27385c32470c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\1e0249e4-d593-46a9-8699-4d434d723c64_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\1e0249e4-d593-46a9-8699-4d434d723c64_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\5144b0c5-8e82-478f-bc69-6b3ec809feac.jpg",
+      "PackagePath": "staticwebassets\\images\\5144b0c5-8e82-478f-bc69-6b3ec809feac.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\559e4c25-3ea7-4412-abe5-4f3737162405_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\559e4c25-3ea7-4412-abe5-4f3737162405_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\5e37cddb-b9e7-4904-9103-9a98adc52c15_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\5e37cddb-b9e7-4904-9103-9a98adc52c15_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\84e5bd4f-1b04-430c-a819-01168789e8e5_1 (7).png",
+      "PackagePath": "staticwebassets\\images\\84e5bd4f-1b04-430c-a819-01168789e8e5_1 (7).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\87f70781-0e65-4867-9559-68c008b8b1bb_1 (1).png",
+      "PackagePath": "staticwebassets\\images\\87f70781-0e65-4867-9559-68c008b8b1bb_1 (1).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\8ef7929e-bd11-4a60-970d-996c6cbd5e56.jpg",
+      "PackagePath": "staticwebassets\\images\\8ef7929e-bd11-4a60-970d-996c6cbd5e56.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\993cd911-3164-4ecd-9dd9-4a9675cd6e16_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\993cd911-3164-4ecd-9dd9-4a9675cd6e16_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\Screenshot 2024-01-02 015039.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2024-01-02 015039.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\a7f65dda-56a3-477f-9179-f89c645dd96a_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\a7f65dda-56a3-477f-9179-f89c645dd96a_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\bc5a6158-4327-43c5-b56b-14a2a1dfd47d_newplot (1).png",
+      "PackagePath": "staticwebassets\\images\\bc5a6158-4327-43c5-b56b-14a2a1dfd47d_newplot (1).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\cf53cacc-214b-40da-a5e7-ff54df24cc01.jpg",
+      "PackagePath": "staticwebassets\\images\\cf53cacc-214b-40da-a5e7-ff54df24cc01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\d12994fd-42a8-44da-8097-927878461b42_1 (3).png",
+      "PackagePath": "staticwebassets\\images\\d12994fd-42a8-44da-8097-927878461b42_1 (3).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\d40f8036-9bf8-469d-b3fc-59cb6dd8d81d_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\d40f8036-9bf8-469d-b3fc-59cb6dd8d81d_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\e4ff963b-5aca-4d89-9132-db9d6b658469_User1.png",
+      "PackagePath": "staticwebassets\\images\\e4ff963b-5aca-4d89-9132-db9d6b658469_User1.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\f74b9f57-f97f-4e20-baed-8d748ba54fbb_photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\f74b9f57-f97f-4e20-baed-8d748ba54fbb_photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\image.png",
+      "PackagePath": "staticwebassets\\images\\image.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\landing (2).jpg",
+      "PackagePath": "staticwebassets\\images\\landing (2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\newplot (1).png",
+      "PackagePath": "staticwebassets\\images\\newplot (1).png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\newplot.png",
+      "PackagePath": "staticwebassets\\images\\newplot.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\photo_5940809342787896640_y.jpg",
+      "PackagePath": "staticwebassets\\images\\photo_5940809342787896640_y.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\photo_6016976730901824908_y (1).jpg",
+      "PackagePath": "staticwebassets\\images\\photo_6016976730901824908_y (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\photo_6016976730901824908_y.jpg",
+      "PackagePath": "staticwebassets\\images\\photo_6016976730901824908_y.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\pic.png",
+      "PackagePath": "staticwebassets\\images\\pic.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\screenshot 2024-12-29 054332.png",
+      "PackagePath": "staticwebassets\\images\\screenshot 2024-12-29 054332.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\screenshot 2024-12-31 014343.png",
+      "PackagePath": "staticwebassets\\images\\screenshot 2024-12-31 014343.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\screenshot 2024-12-31 014458.png",
+      "PackagePath": "staticwebassets\\images\\screenshot 2024-12-31 014458.png"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\images\\subscribe.jpg",
+      "PackagePath": "staticwebassets\\images\\subscribe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\0ol\\OneDrive\\Bureaublad\\Assigment2\\wwwroot\\ui-forms.html",
+      "PackagePath": "staticwebassets\\ui-forms.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Assigment2.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Assigment2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Assigment2.props",
+      "PackagePath": "build\\Assigment2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Assigment2.props",
+      "PackagePath": "buildMultiTargeting\\Assigment2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Assigment2.props",
+      "PackagePath": "buildTransitive\\Assigment2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

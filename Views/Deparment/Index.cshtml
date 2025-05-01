@@ -1,0 +1,161 @@
+﻿@using Assigment2.ViewModel
+@model List<Department>
+@{
+    ViewData["Title"] = "Department List";
+    Layout = "_MyLayout";
+    ViewData["ControllerName"] = "Deparment";
+    ViewData["ActionName"] = "Index";
+
+    // Ensure ViewBag.Pager is assigned correctly
+    PagedResult pagedResult = ViewBag.Pager as PagedResult ?? new PagedResult();
+    int pageno = pagedResult.CurrentPage;
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+    .department-table {
+        --bs-table-bg: #f8f9fa;
+        border-collapse: separate;
+        border-spacing: 0 0.75rem;
+    }
+
+        .department-table thead {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            color: white;
+        }
+
+    .manager-badge {
+        background-color: #e9ecef;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.9em;
+    }
+
+    .action-buttons .btn {
+        min-width: 100px;
+        margin: 2px;
+        transition: all 0.2s ease;
+    }
+
+    .table-hover tbody tr:hover {
+        transform: translateX(8px);
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+</style>
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary mb-0">
+            <i class="fas fa-building me-2"></i>Department List
+        </h1>
+        <a asp-action="AddNew" asp-controller="Deparment" class="btn btn-success btn-lg">
+            <i class="fas fa-plus-circle me-2"></i>Add New
+        </a>
+    </div>
+
+    <div class="table-responsive rounded-3 shadow">
+        <table class="department-table table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th scope="col" class="ps-4">ID</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col">Manager</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var department in Model)
+                {
+                    <tr class="bg-white">
+                        <td class="ps-4 fw-bold text-primary">@department.DepartmentId</td>
+                        <td>@department.Name</td>
+                        <td>
+                            <span class="manager-badge">
+                                @(department.Manager ?? "No Manager")
+                            </span>
+                        </td>
+                        <td class="action-buttons text-center">
+                            <a href="/Deparment/Edit/@department.DepartmentId"
+                               class="btn btn-warning btn-sm"
+                               aria-label="Edit @department.Name">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <button onclick="showDeleteModal(@department.DepartmentId, '@department.Name')"
+                                    class="btn btn-danger btn-sm"
+                                    aria-label="Delete @department.Name">
+                                <i class="fas fa-trash-alt me-1"></i>Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <partial name="_Pages" model="@pagedResult" />
+</div>
+
+    <!-- Delete Restriction Modal -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">Deletion Not Allowed</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You cannot delete <strong id="departmentName"></strong> because it is associated with other records.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+</div>
+@section Scripts {
+    <script>
+
+
+         function showDeleteModal(departmentId, departmentName) {
+            // Set the department name in the modal
+            document.getElementById("departmentName").textContent = departmentName;
+
+            // Show the modal
+            var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+            deleteModal.show();
+        }
+
+                function showLoader() {
+            $('body').append(`
+                <div class="loading-overlay d-flex justify-content-center align-items-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            `);
+        }
+
+        function hideLoader() {
+            $('.loading-overlay').remove();
+        }
+
+        function showToast(title, message, type = 'success') {
+            const toast = $(`
+                <div class="toast align-items-center text-white bg-${type} border-0 position-fixed bottom-0 end-0 m-3">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <strong>${title}</strong> ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `);
+
+            $('body').append(toast);
+            new bootstrap.Toast(toast[0]).show();
+        }
+    </script>
+}

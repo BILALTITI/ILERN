@@ -1,0 +1,53 @@
+﻿@model PagedResult
+@{
+    var controllerName = ViewData["ControllerName"] as string ?? "Course";  // Default to "Course" if not passed
+    var actionName = ViewData["ActionName"] as string ?? "Index";  // Default to "Index" if not passed
+}
+<style>
+    .pagination .page-item.active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color: white;
+    }
+
+    .pagination .page-link {
+        color: #0d6efd;
+    }
+</style>
+
+<div class="container">
+    <ul class="pagination justify-content-end">
+        @if (Model.TotalPages > 0)
+        {
+            <!-- First Page Button -->
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="@controllerName" asp-action="@actionName" asp-route-pg="1">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="@controllerName" asp-action="@actionName" asp-route-pg="@(Model.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            <!-- Page Number Buttons -->
+            @for (var pge = Model.StartPage; pge <= Model.EndPage; pge++)
+            {
+                <li class="page-item @(pge == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="@controllerName" asp-action="@actionName" asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+
+            <!-- Next & Last Page Buttons -->
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="@controllerName" asp-action="@actionName" asp-route-pg="@(Model.CurrentPage + 1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="@controllerName" asp-action="@actionName" asp-route-pg="@(Model.TotalPages)">Last</a>
+                </li>
+            }
+        }
+    </ul>
+</div>

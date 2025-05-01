@@ -1,0 +1,46 @@
+﻿ @model List<Course>
+@{
+    ViewData["Title"] = "Course List";
+}
+
+<h2>Course List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Min Degree</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var course in Model)
+            {
+                double degree, minDegree;
+                bool isDegreeValid = double.TryParse(course.Degree, out degree);
+                bool isMinDegreeValid = double.TryParse(course.MinDegree, out minDegree);
+
+                <tr style="@(isDegreeValid && isMinDegreeValid && minDegree > degree ? "color: red;" : "")">
+                    <td>@course.CourseId</td>
+                    <td>@course.Name</td>
+                    <td>@course.Degree</td>
+                    <td>@course.MinDegree</td>
+                    <td>@(course.Department != null ? course.Department.Name : "No Department")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No courses available</td>
+            </tr>
+        }
+    </tbody>
+
+        
+    </tbody>
+</table>

@@ -1,0 +1,102 @@
+wwwroot\css\auth.css
+wwwroot\css\site.css
+wwwroot\favicon.ico
+wwwroot\images\0600ffea-2b81-46b4-bfcb-9329926ab348.jpg
+wwwroot\images\06fc4b09-e178-4968-bb5c-0319488a8600_photo_6016976730901824908_y (1).jpg
+wwwroot\images\1 (1).png
+wwwroot\images\1 (2).png
+wwwroot\images\1 (4).png
+wwwroot\images\1 (5).png
+wwwroot\images\1 (6).png
+wwwroot\images\1 (7).png
+wwwroot\images\1 (8).png
+wwwroot\images\1.jpg
+wwwroot\images\13181da4-8402-40b1-8a3f-be166f19dc45.jpg
+wwwroot\images\147e91b9-ca4c-469a-a0d1-27385c32470c.jpg
+wwwroot\images\1e0249e4-d593-46a9-8699-4d434d723c64_photo_6016976730901824908_y (1).jpg
+wwwroot\images\5144b0c5-8e82-478f-bc69-6b3ec809feac.jpg
+wwwroot\images\559e4c25-3ea7-4412-abe5-4f3737162405_photo_6016976730901824908_y (1).jpg
+wwwroot\images\5e37cddb-b9e7-4904-9103-9a98adc52c15_photo_6016976730901824908_y (1).jpg
+wwwroot\images\84e5bd4f-1b04-430c-a819-01168789e8e5_1 (7).png
+wwwroot\images\87f70781-0e65-4867-9559-68c008b8b1bb_1 (1).png
+wwwroot\images\8ef7929e-bd11-4a60-970d-996c6cbd5e56.jpg
+wwwroot\images\993cd911-3164-4ecd-9dd9-4a9675cd6e16_photo_6016976730901824908_y (1).jpg
+wwwroot\images\a7f65dda-56a3-477f-9179-f89c645dd96a_photo_6016976730901824908_y (1).jpg
+wwwroot\images\bc5a6158-4327-43c5-b56b-14a2a1dfd47d_newplot (1).png
+wwwroot\images\cf53cacc-214b-40da-a5e7-ff54df24cc01.jpg
+wwwroot\images\d12994fd-42a8-44da-8097-927878461b42_1 (3).png
+wwwroot\images\d40f8036-9bf8-469d-b3fc-59cb6dd8d81d_photo_6016976730901824908_y (1).jpg
+wwwroot\images\e4ff963b-5aca-4d89-9132-db9d6b658469_User1.png
+wwwroot\images\f74b9f57-f97f-4e20-baed-8d748ba54fbb_photo_6016976730901824908_y (1).jpg
+wwwroot\images\image.png
+wwwroot\images\landing (2).jpg
+wwwroot\images\newplot (1).png
+wwwroot\images\newplot.png
+wwwroot\images\photo_5940809342787896640_y.jpg
+wwwroot\images\photo_6016976730901824908_y (1).jpg
+wwwroot\images\photo_6016976730901824908_y.jpg
+wwwroot\images\pic.png
+wwwroot\images\Screenshot 2024-01-02 015039.png
+wwwroot\images\screenshot 2024-12-29 054332.png
+wwwroot\images\screenshot 2024-12-31 014343.png
+wwwroot\images\screenshot 2024-12-31 014458.png
+wwwroot\images\subscribe.jpg
+wwwroot\js\site.js
+wwwroot\lib\bootstrap\dist\css\bootstrap.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+wwwroot\lib\bootstrap\LICENSE
+wwwroot\lib\jquery\dist\jquery.js
+wwwroot\lib\jquery\dist\jquery.min.js
+wwwroot\lib\jquery\dist\jquery.min.map
+wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery-validation\dist\additional-methods.js
+wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+wwwroot\lib\jquery-validation\LICENSE.md
+wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\ui-forms.html

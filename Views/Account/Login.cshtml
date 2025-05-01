@@ -1,0 +1,275 @@
+﻿@using Assigment2.ViewModel
+ 
+@model LoginUserViewModel
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --error-color: #dc2626;
+        --success-color: #16a34a;
+    }
+
+    .auth-container {
+        /* min-height: 100vh; */
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        padding: 1rem;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 425px;
+        padding: 5.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 1rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+        .form-header h1 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        transition: border-color 0.3s ease;
+        font-size: 1rem;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 3rem;
+        top: 67%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #6b7280;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--primary-color);
+        border: none;
+        border-radius: 0.75rem;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+    .form-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #4b5563;
+    }
+
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            .form-footer a:hover {
+                color: var(--primary-hover);
+                text-decoration: underline;
+            }
+
+    .validation-summary {
+        background: #fee2e2;
+        color: var(--error-color);
+        padding: 1rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .field-validation-error {
+        display: block;
+        margin-top: 0.5rem;
+        color: var(--error-color);
+        font-size: 0.875rem;
+    }
+
+    .input-error {
+        border-color: var(--error-color) !important;
+    }
+
+    @@media (max-width: 480px) {
+        .form-container {
+            padding: 1.5rem;
+        }
+    .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+        transition: all 0.3s ease;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 1rem 1rem 1rem 2.8rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-position: left 1rem center;
+        background-repeat: no-repeat;
+        background-size: 1.2rem;
+    }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Email input icon */
+        .form-control[type="email"] {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3E%3Cpath d='M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z' /%3E%3Cpath d='M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z' /%3E%3C/svg%3E");
+        }
+
+        /* Password input icon */
+        .form-control[type="password"] {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3E%3Cpath fill-rule='evenodd' d='M15.75 1.5a6.75 6.75 0 00-6.651 7.906c.067.39-.032.717-.221.906l-6.5 6.499a3 3 0 00-.878 2.121v2.818c0 .414.336.75.75.75H6a.75.75 0 00.75-.75v-1.5h1.5A.75.75 0 009 19.5V18h1.5a.75.75 0 00.53-.22l2.658-2.658c.19-.189.517-.288.906-.22A6.75 6.75 0 1015.75 1.5zm0 3a.75.75 0 000 1.5A2.25 2.25 0 0118 8.25a.75.75 0 001.5 0 3.75 3.75 0 00-3.75-3.75z' clip-rule='evenodd' /%3E%3C/svg%3E");
+        }
+
+    .input-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9CA3AF;
+        z-index: 10;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #6b7280;
+    }
+
+    .field-validation-error {
+        display: block;
+        margin-top: 0.5rem;
+        color: #dc2626;
+        font-size: 0.875rem;
+    }
+
+    .input-error {
+        border-color: #dc2626 !important;
+    }
+</style>
+
+<div class="auth-container">
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Welcome Back</h1>
+            <p>Please sign in to continue</p>
+        </div>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="validation-summary">
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
+
+
+        <form asp-action="Login" method="post" id="login-form" novalidate>
+            <div class="input-group">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <div class="relative">
+                    <i class="input-icon fas fa-envelope"></i>
+                    <input asp-for="Email" type="email"
+                           class="form-control @(ViewData.ModelState["Email"]?.Errors.Any() == true ? "input-error" : "")"
+                           placeholder="name@example.com">
+                </div>
+                <span asp-validation-for="Email" class="field-validation-error"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="Password" class="form-label">Password</label>
+                <div class="relative">
+                    <i class="input-icon fas fa-lock"></i>
+                    <input asp-for="Password" type="password"
+                           class="form-control @(ViewData.ModelState["Password"]?.Errors.Any() == true ? "input-error" : "")"
+                           placeholder="••••••••">
+                    <span class="password-toggle">👁️</span>
+                </div>
+                <span asp-validation-for="Password" class="field-validation-error"></span>
+            </div>
+            <button type="submit" class="btn-primary">Sign In</button>
+
+            <div class="form-footer">
+                <p>Don't have an account? <a asp-action="Register" asp-controller="Account">Create account</a></p>
+                <p><a href="#forgot-password">Forgot password?</a></p>
+            </div>
+         </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Password visibility toggle
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const passwordInput = this.previousElementSibling;
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? '👁️' : '🙈';
+            });
+        });
+    </script>
+}

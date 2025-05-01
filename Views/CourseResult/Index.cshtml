@@ -1,0 +1,185 @@
+﻿@using Assigment2.ViewModel
+@model List<CourseResult>
+@{
+    ViewData["Title"] = "Course Results List";
+    Layout = "_MyLayout";
+    ViewData["ControllerName"] = "CourseResult";
+    ViewData["ActionName"] = "Index";
+
+    // Ensure ViewBag.Pager is assigned correctly
+    PagedResult pagedResult = ViewBag.Pager as PagedResult ?? new PagedResult();
+    int pageno = pagedResult.CurrentPage;
+}
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+    .results-table {
+        --bs-table-bg: #f8f9fa;
+        border-collapse: separate;
+        border-spacing: 0 0.75rem;
+    }
+
+        .results-table thead {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+        }
+
+    .degree-badge {
+        font-size: 0.9em;
+        padding: 0.5em 0.8em;
+        border-radius: 20px;
+        min-width: 70px;
+        display: inline-block;
+    }
+
+    .action-buttons .btn {
+        min-width: 100px;
+        margin: 2px;
+        transition: all 0.2s ease;
+    }
+
+    .table-hover tbody tr:hover {
+        transform: translateX(8px);
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+</style>
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary mb-0">
+            <i class="fas fa-trophy me-2"></i>Course Results
+        </h1>
+        <a asp-action="AddNew" asp-controller="CourseResult" class="btn btn-success btn-lg">
+            <i class="fas fa-plus-circle me-2"></i>Add New
+        </a>
+    </div>
+
+    <div class="table-responsive rounded-3 shadow">
+        <table class="results-table table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th scope="col" class="ps-4">ID</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Trainee Name</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model)
+                {
+                    <tr class="bg-white">
+                        <td class="ps-4 fw-bold text-primary">@result.CourseResultId</td>
+                        <td>
+                            <span class="degree-badge @(result.Degree >= 60 ? "bg-success" : "bg-danger")">
+                                @result.Degree.ToString("N0")%
+                            </span>
+                        </td>
+                        <td>@result.Trainee.Name</td>
+                        <td>@result.Course.Name</td>
+                        <td class="action-buttons text-center">
+                            <a href="/CourseResult/Edit/@result.CourseResultId"
+                               class="btn btn-warning btn-sm"
+                               aria-label="Edit result for @result.Trainee.Name">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <button onclick="showDeleteModal(@result.CourseResultId, '@result.Course.Name')"
+                                    class="btn btn-danger btn-sm"
+                                    aria-label="Delete result for @result.Course.Name">
+                                <i class="fas fa-trash-alt me-1"></i>Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <partial name="_Pages" model="@pagedResult" />
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the result for <strong id="courseName"></strong>?
+                <p class="text-danger mt-2">This action will permanently remove the result record!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let currentResultId = null;
+
+        function showDeleteModal(id, courseName) {
+            currentResultId = id;
+            $('#courseName').text(courseName);
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        $('#confirmDelete').click(() => {
+            if (!currentResultId) return;
+
+            $.ajax({
+                url: `/CourseResult/Delete/${currentResultId}`,
+                method: 'POST',
+                beforeSend: () => {
+                    $('#deleteModal').modal('hide');
+                    showLoader();
+                },
+                success: () => {
+                    location.reload();
+                },
+                error: () => {
+                    hideLoader();
+                    showToast('Error!', 'Failed to delete course result.', 'danger');
+                }
+            });
+        });
+
+        function showLoader() {
+            $('body').append(`
+                <div class="loading-overlay d-flex justify-content-center align-items-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            `);
+        }
+
+        function hideLoader() {
+            $('.loading-overlay').remove();
+        }
+
+        function showToast(title, message, type = 'success') {
+            const toast = $(`
+                <div class="toast align-items-center text-white bg-${type} border-0 position-fixed bottom-0 end-0 m-3">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <strong>${title}</strong> ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            `);
+
+            $('body').append(toast);
+            new bootstrap.Toast(toast[0]).show();
+        }
+    </script>
+}
